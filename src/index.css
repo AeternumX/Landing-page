@@ -1,0 +1,225 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 192 100% 40%;
+    --primary-foreground: 192 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 192 100% 40%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Text Wrapping and Line Height */
+.text-wrap-balance {
+  text-wrap: balance;
+}
+
+.text-wrap-pretty {
+  text-wrap: pretty;
+}
+
+.line-height-relaxed {
+  line-height: 1.75;
+}
+
+/* Animations */
+.success-button {
+  animation: float 3s ease-in-out infinite;
+  background: linear-gradient(45deg, #22c55e, #16a34a);
+  position: relative;
+  overflow: hidden;
+}
+
+.success-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  animation: shine 2s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shine {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Custom styles */
+.cyberpunk-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#00DDFF] to-blue-600;
+}
+
+.cyberpunk-border {
+  @apply border border-[#00DDFF]/20 bg-background/50 backdrop-blur-sm hover:border-[#00DDFF]/40 hover:shadow-[0_0_20px_rgba(0,221,255,0.2)] transition-all duration-300;
+}
+
+.accessible-text {
+  @apply text-gray-300 leading-relaxed text-wrap-pretty;
+}
+
+.product-card {
+  @apply p-6 rounded-lg cyberpunk-border hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,221,255,0.2)] transition-all duration-300;
+}
+
+.feature-item {
+  @apply flex items-start gap-4 p-4 rounded-lg cyberpunk-border hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,221,255,0.2)] transition-all duration-300;
+}
+
+.team-card {
+  @apply p-6 rounded-lg cyberpunk-border hover:scale-105 transition-all duration-300;
+}
+
+.nav-link {
+  @apply text-gray-400 hover:text-[#00DDFF] transition-colors;
+}
+
+.nav-link.active {
+  @apply text-[#00DDFF];
+}
+
+.required-field::after {
+  content: "*";
+  @apply text-[#00DDFF] ml-1;
+}
+
+.focus-ring {
+  @apply focus-visible:ring-2 focus-visible:ring-[#00DDFF] focus-visible:ring-offset-2;
+}
+
+.hero-text {
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-wrap-balance;
+  background: linear-gradient(to right, #ffffff, #00DDFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.button-primary {
+  @apply bg-[#0088cc] hover:bg-[#00DDFF] text-white hover:scale-105 hover:shadow-[0_0_30px_rgba(0,221,255,0.3)] transition-all duration-300;
+}
+
+.button-outline {
+  @apply border-[#0088cc] text-[#00DDFF] hover:bg-[#0088cc]/10 hover:border-[#00DDFF] hover:scale-105 hover:shadow-[0_0_30px_rgba(0,221,255,0.3)] transition-all duration-300;
+}
+
+.metric-card {
+  @apply flex flex-col items-center justify-center h-32 text-center p-6 rounded-lg cyberpunk-border;
+}
+
+/* Mouse follow effect */
+.mouse-follow {
+  pointer-events: none;
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle at center, rgba(0, 221, 255, 0.15), transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Content Sections */
+.content-section {
+  @apply max-w-[65ch] mx-auto text-wrap-pretty line-height-relaxed;
+}
+
+/* Feature Descriptions */
+.feature-description {
+  @apply text-gray-400 text-wrap-pretty leading-relaxed;
+}
+
+/* Beta Benefits Card */
+.beta-benefit-card {
+  position: relative;
+  overflow: hidden;
+  @apply p-6 rounded-lg bg-secondary/5 text-center transition-all duration-500;
+}
+
+.beta-benefit-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 221, 255, 0.15), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.beta-benefit-card:hover {
+  @apply bg-secondary/10 transform scale-105;
+  box-shadow: 
+    0 0 20px rgba(0, 221, 255, 0.1),
+    0 0 40px rgba(0, 221, 255, 0.05);
+}
+
+.beta-benefit-card:hover::before {
+  opacity: 1;
+}
+
+.beta-benefit-card .icon-wrapper {
+  @apply text-primary mb-4 transition-all duration-500;
+}
+
+.beta-benefit-card:hover .icon-wrapper {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(0, 221, 255, 0.5));
+}
+
+.beta-benefit-card .benefit-title {
+  @apply font-bold mb-2 transition-all duration-500;
+}
+
+.beta-benefit-card:hover .benefit-title {
+  @apply text-[#00DDFF];
+}
+
+.beta-benefit-card .benefit-description {
+  @apply text-gray-300 text-sm transition-all duration-500;
+}
+
+.beta-benefit-card:hover .benefit-description {
+  @apply text-gray-200;
+}
