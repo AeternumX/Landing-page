@@ -187,7 +187,13 @@ const TeachlyzeSignup = () => {
             transition={{ delay: 0.3 }}
             className="flex flex-col items-center gap-4"
           >
-            <form onSubmit={handleSubmit} className="w-full max-w-md space-y-4">
+            <form 
+              onSubmit={handleSubmit} 
+              className="w-full max-w-md space-y-4" 
+              name="beta-signup"
+              netlify
+              data-netlify="true"
+            >
               <Input
                 type="email"
                 placeholder="Seu melhor email para acesso antecipado"

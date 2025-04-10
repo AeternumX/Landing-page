@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -124,6 +123,9 @@ const Contact = () => {
             animate={{ opacity: 1, x: 0 }}
             onSubmit={handleSubmit}
             className="contact-form"
+            name="contact"
+            netlify
+            data-netlify="true"
           >
             <div className="space-y-4">
               <div>
