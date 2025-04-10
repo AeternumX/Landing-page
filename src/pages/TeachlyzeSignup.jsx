@@ -189,13 +189,21 @@ const TeachlyzeSignup = () => {
           >
             <form 
               onSubmit={handleSubmit} 
-              className="w-full max-w-md space-y-4" 
+              method="POST"
               name="beta-signup"
-              netlify
               data-netlify="true"
+              netlify-honeypot="bot-field"
+              className="w-full max-w-md space-y-4"
             >
+              <input type="hidden" name="form-name" value="beta-signup" />
+              <p className="hidden">
+                <label>
+                  Don't fill this out if you're human: <input name="bot-field" />
+                </label>
+              </p>
               <Input
                 type="email"
+                name="email"
                 placeholder="Seu melhor email para acesso antecipado"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}

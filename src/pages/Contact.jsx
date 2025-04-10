@@ -121,17 +121,24 @@ const Contact = () => {
           <motion.form
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            onSubmit={handleSubmit}
-            className="contact-form"
+            method="POST"
             name="contact"
-            netlify
             data-netlify="true"
+            netlify-honeypot="bot-field"
+            className="contact-form"
           >
+            <input type="hidden" name="form-name" value="contact" />
+            <p className="hidden">
+              <label>
+                Don't fill this out if you're human: <input name="bot-field" />
+              </label>
+            </p>
             <div className="space-y-4">
               <div>
                 <Label htmlFor="name" className="required-field">Nome</Label>
                 <Input 
                   id="name" 
+                  name="name"
                   value={formState.name}
                   onChange={handleChange}
                   required 
@@ -142,6 +149,7 @@ const Contact = () => {
                 <Label htmlFor="email" className="required-field">Email</Label>
                 <Input 
                   id="email" 
+                  name="email"
                   type="email" 
                   value={formState.email}
                   onChange={handleChange}
@@ -153,6 +161,7 @@ const Contact = () => {
                 <Label htmlFor="subject" className="required-field">Assunto</Label>
                 <Input 
                   id="subject" 
+                  name="subject"
                   value={formState.subject}
                   onChange={handleChange}
                   required 
@@ -163,6 +172,7 @@ const Contact = () => {
                 <Label htmlFor="message" className="required-field">Mensagem</Label>
                 <Textarea
                   id="message"
+                  name="message"
                   value={formState.message}
                   onChange={handleChange}
                   required
