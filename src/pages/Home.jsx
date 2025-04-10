@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -60,7 +59,7 @@ const Home = () => {
               <img  
                 className="rounded-lg cyberpunk-border w-full h-[500px] object-cover"
                 alt="AI Technology Visualization"
-               src="https://images.unsplash.com/photo-1678995635432-d9e89c7a8fc5" />
+                src="https://fast.image.delivery/wxhjqyv.png" />
             </motion.div>
           </div>
         </div>
